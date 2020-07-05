@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="23种设计模式, 可乐拌龙虾">
+    <meta name="keywords" content="复制文件, 可乐拌龙虾">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>23种设计模式 | 可乐拌龙虾</title>
+    <title>复制文件 | 可乐拌龙虾</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">23种设计模式</h1>
+                    <h1 class="description center-align post-title">复制文件</h1>
                 </div>
             </div>
         </div>
@@ -428,17 +428,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">设计模式</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">学习笔记</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -450,7 +442,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-04
+                    2020-07-05
                 </div>
                 
 
@@ -466,54 +458,15 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="设计模式分为三类，23种"><a href="#设计模式分为三类，23种" class="headerlink" title="设计模式分为三类，23种"></a>设计模式分为三类，23种</h3><p><strong>1.创建型模式：</strong></p>
-<p>​        <span style='color:red'>单例模式</span>、抽象工厂模式、原型模式、建造者模式、<span style='color:red'>工厂模式</span></p>
-<p><strong>2.结构型模式:</strong></p>
-<p>​        适配器模式、桥接模式、<span style='color:red'>装饰者模式</span>、组合模式、外观模式、享元模式、<span style='color:red'>代理模式</span></p>
-<p><strong>3.行为型模式:</strong></p>
-<p>​        模板方法模式、命令模式、访问者模式、迭代器模式、<span style='color:red'>观察者模式</span>、中介者模式、备忘录模式、解释器模式（Interpreter模式）、状态模式、策略模式、职责链模式（责任链模式）。</p>
-<h2 id="那么开始吧"><a href="#那么开始吧" class="headerlink" title="那么开始吧"></a>那么开始吧</h2><h3 id="1-单例模式"><a href="#1-单例模式" class="headerlink" title="1.单例模式"></a>1.单例模式</h3><p>有七种：</p>
-<p>1.饿汉式（静态常量）—可能造成内存浪费</p>
-<p>2.饿汉式（静态代码块） —可能造成内存浪费</p>
-<p>3.懒汉式（线程不安全）</p>
-<p>4.懒汉式（线程安全，同步方法）</p>
-<p>5.双重检测</p>
-<p>6.静态内部类</p>
-<p>7.枚举</p>
-<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><p>1.饿汉式（静态常量） </p>
-<p>思路：</p>
-<p>①构造器私有化（防止 new）</p>
-<p>②类的内部创建对象</p>
-<p>③向外暴露一个静态的公共方法。 getInstance</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">class SingleTon &#123;</span><br><span class="line">   	//2.创建对象</span><br><span class="line">	private final static SingleTon INSTANCE = new SingleTon();</span><br><span class="line">    </span><br><span class="line">    //1.构造器私有化</span><br><span class="line">    private SingleTon()&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    //3.提供一个静态方法，返回实例对象</span><br><span class="line">    public static SingleTon getInstance()&#123;</span><br><span class="line">        return INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
+                <h2 id="第一步-实现输出一个文件夹里文件的所有目录名"><a href="#第一步-实现输出一个文件夹里文件的所有目录名" class="headerlink" title="第一步:实现输出一个文件夹里文件的所有目录名"></a>第一步:实现输出一个文件夹里文件的所有目录名</h2><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">public class Copy&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        File f = new File("D:/jar/");</span><br><span class="line">        copy(f);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void copy(File f)&#123;</span><br><span class="line">    	//如果该文件是文件，说明已经不能再打开了，退出本次调用。</span><br><span class="line">        if(f.isFile())&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">       //得到该目录文件下的所有子文件</span><br><span class="line">       File[] files = f.listFiles();</span><br><span class="line">    </span><br><span class="line">       //输出文件的绝对路径，并递归调用方法。</span><br><span class="line">       for(File t:files)&#123;</span><br><span class="line">           System.out.println(t.getAbsolutePath());</span><br><span class="line">           copy(t);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
 
+<h2 id="第二步-拷贝路径不能写死，需要一个属性文件"><a href="#第二步-拷贝路径不能写死，需要一个属性文件" class="headerlink" title="第二步:拷贝路径不能写死，需要一个属性文件"></a>第二步:拷贝路径不能写死，需要一个属性文件</h2><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">public class Copy&#123;</span><br><span class="line">    public static String copyBefore;</span><br><span class="line">    public static String copyAfter;</span><br><span class="line">    public static Properties pp;</span><br><span class="line">    </span><br><span class="line">    static&#123;</span><br><span class="line">        pp = new Properties();</span><br><span class="line">        try&#123;</span><br><span class="line">            //取得类路径下的属性文件</span><br><span class="line">            pp.load(Copy.class.getResourceAsStream("path.properties"));</span><br><span class="line">            copyBefore = pp.getProperty("copyBefore");</span><br><span class="line">        	copyAfter = pp.getProperty("copyAfter");</span><br><span class="line">        &#125;catch(IOException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        File f = new File(copyBefore);</span><br><span class="line">        copy(f);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //此处省略copy方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
 
+<h2 id="第三步：拷贝文件"><a href="#第三步：拷贝文件" class="headerlink" title="第三步：拷贝文件"></a>第三步：拷贝文件</h2><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">public class Copy&#123;</span><br><span class="line">	//此处省略静态变量和静态代码块</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">	    File f = new File(copyBefore);</span><br><span class="line">	    copy(f);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void copy(File f)&#123;</span><br><span class="line">	    //如果该文件是文件，说明已经不能再打开了，复制后再退出本次调用。</span><br><span class="line">	    if(f.isFile())&#123;</span><br><span class="line">	        </span><br><span class="line">	        //复制要有3个路径</span><br><span class="line">	        //1.源文件的绝对路径--&gt;用于传给输入流</span><br><span class="line">	        String path1 = f.getAbsolutePath();</span><br><span class="line">	        //2.复制后文件的绝对路径--&gt;用于传给输出流</span><br><span class="line">	        String path2 = copyAfter + path1.substring(3);</span><br><span class="line">	        //3.复制后文件的父路径--&gt;复制前要先创建目录用于存放</span><br><span class="line">	        File path3 = new File(path2).getParentFile();</span><br><span class="line">	        </span><br><span class="line">	        //创建文件夹</span><br><span class="line">	      	if(!path3.exists())&#123;</span><br><span class="line">	            path3.mkdirs();</span><br><span class="line">	        &#125;</span><br><span class="line">	        </span><br><span class="line">	        //开始复制</span><br><span class="line">	        FileInputStream fis = null;</span><br><span class="line">	        FileOutputStream fos = null;</span><br><span class="line">	        try&#123;</span><br><span class="line">	            fis = new FileInputStream(path1);</span><br><span class="line">	            fos = new FileOutputStream(path2);</span><br><span class="line">	            byte[] bytes = new byte[1024];</span><br><span class="line">	            int temp = 0;</span><br><span class="line">	            while((temp = fis.read(bytes)) != -1)&#123;</span><br><span class="line">	                fos.write(bytes,0,temp);</span><br><span class="line">	            &#125;</span><br><span class="line">	            fos.flush();</span><br><span class="line">	        &#125;catch(IOException e)&#123;</span><br><span class="line">	            e.printStackTrace();</span><br><span class="line">	        &#125;finally&#123;</span><br><span class="line">	            if(fis != null)&#123;</span><br><span class="line">	                try&#123; fis.close(); &#125;</span><br><span class="line">	                catch(IOException e)&#123;</span><br><span class="line">	                    e.printStackTrace();</span><br><span class="line">	                &#125;</span><br><span class="line">	            &#125;</span><br><span class="line">	            if(fos != null)&#123;</span><br><span class="line">	                try&#123; fos.close(); &#125;</span><br><span class="line">	                catch(IOException e)&#123;</span><br><span class="line">	                    e.printStackTrace();</span><br><span class="line">	                &#125;</span><br><span class="line">	            &#125;</span><br><span class="line">	        &#125;</span><br><span class="line">	        </span><br><span class="line">	        return;</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    //得到该目录文件下的所有子文件</span><br><span class="line">	    File[] files = f.listFiles();</span><br><span class="line">	</span><br><span class="line">	    //输出文件的绝对路径，并递归调用方法。</span><br><span class="line">	    for(File t:files)&#123;</span><br><span class="line">	        copy(t);</span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
 
-<p>2.饿汉式（静态代码块）</p>
-<hr>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">class SingleTon &#123;</span><br><span class="line">   	</span><br><span class="line">	private final static SingleTon INSTANCE;</span><br><span class="line">    </span><br><span class="line">    //2.在静态代码块种，创建单例对象</span><br><span class="line">    static&#123;</span><br><span class="line">        INSTANCE = new SingleTon();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //1.构造器私有化</span><br><span class="line">    private SingleTon()&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    //3.提供一个静态方法，返回实例对象</span><br><span class="line">    public static SingleTon getInstance()&#123;</span><br><span class="line">        return INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p><img src="../images/%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6/image-20200705190951309.png" alt="image-20200705190951309"></p>
+<p><img src="../images/%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6/image-20200705191013225.png" alt="image-20200705191013225"></p>
 
-<hr>
-<p>3.懒汉式（线程不安全）</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">class SingleTon &#123;</span><br><span class="line">	private static SingleTon instance;</span><br><span class="line"></span><br><span class="line">​    private SingleTon()&#123;&#125;</span><br><span class="line">​    </span><br><span class="line">​    //只有调用方法的时候才创建对象。</span><br><span class="line">​    public static SingleTon getInstance()&#123;</span><br><span class="line">​        if(instance == null)&#123;</span><br><span class="line">​            instance = new SingleTon();</span><br><span class="line">​        &#125;</span><br><span class="line">​        return instance;</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
-
-
-
-<p>4.懒汉式（线程安全，同步方法）</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">class SingleTon &#123;</span><br><span class="line">	private static SingleTon instance;</span><br><span class="line"></span><br><span class="line">​    private SingleTon()&#123;&#125;</span><br><span class="line">​    </span><br><span class="line">​    //加入了同步处理的代码，解决线程安全问题</span><br><span class="line">​    public static synchronized SingleTon getInstance()&#123;</span><br><span class="line">​        if(instance == null)&#123;</span><br><span class="line">​            instance = new SingleTon();</span><br><span class="line">​        &#125;</span><br><span class="line">​        return instance;</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
-
-
-
-<p>5.双重检测</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">class SingleTon&#123;</span><br><span class="line">    private static volatile SingleTon instance;</span><br><span class="line">    private SingleTon()&#123;&#125;</span><br><span class="line">    public static SingleTon getInstance()&#123;</span><br><span class="line">        if(instance == null)&#123;</span><br><span class="line">            synchronized(SingleTon.class)&#123;</span><br><span class="line">                if(instance == null)&#123;</span><br><span class="line">                    instance = new SingleTon();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> 
-
-
-
-
-
-
-
-<h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h2>
             </div>
             <hr/>
 
@@ -538,7 +491,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/04/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">http://yoursite.com/2020/07/04/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</a>
+                    <a href="http://yoursite.com/2020/07/05/%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6/">http://yoursite.com/2020/07/05/%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -575,15 +528,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">设计模式</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">学习笔记</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -749,9 +694,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2020/07/05/%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="复制文件">
+                        
+                        <span class="card-title">复制文件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            第一步:实现输出一个文件夹里文件的所有目录名1234567891011121314151617181920212223242526 public class Copy&#123;    public static void main(Str
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            可乐拌龙虾
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/07/04/7%E4%B8%AA%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
                     <div class="card-image">
@@ -771,9 +755,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -791,60 +775,6 @@
                     
                     <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
                         <span class="chip bg-color">设计原则</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/03/hexo%E7%94%A8Typora%E7%BC%96%E5%86%99%E6%97%B6%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hexo用Typora编写时图片无法显示">
-                        
-                        <span class="card-title">hexo用Typora编写时图片无法显示</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            第一步：在source目录下新建一个images目录用于存放图片第二步：在对Typora软件进行设置文件–&gt;偏好设置–&gt;指定图片复制到路径。存放时存放到相对路径。
-然后
-
-然后设置图片的根目录到source目录。
-
-参考：htt
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-03
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            可乐拌龙虾
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">
-                        <span class="chip bg-color">踩坑记录</span>
-                    </a>
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
